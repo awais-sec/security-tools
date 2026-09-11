@@ -27,3 +27,8 @@ htmlcov/
 # Generated local captures
 *.pcap
 *.pcapng
+
+# Log Pattern Analyzer local output
+bash/log-pattern-analyzer/matches.log
+bash/log-pattern-analyzer/matches.csv
+bash/log-pattern-analyzer/matches.json
