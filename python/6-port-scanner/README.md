@@ -1,34 +1,72 @@
 # Python TCP Port Scanner
 
-A simple and beginner-friendly TCP port scanner written in Python using only the standard library.
+A beginner-friendly TCP port scanner written in Python using only the standard library.
 
-The tool checks whether TCP ports on a target are open, closed, or unavailable due to a timeout. It also displays the common service name associated with each port when available.
+It checks TCP ports on a target and reports reachable/open ports with common service names when available.
 
 > Use this tool only against systems you own or have explicit permission to test.
 
 ## Features
 
 - Scan individual TCP ports
-- Scan multiple ports
+- Scan comma-separated ports
 - Scan port ranges
-- Scan all TCP ports from 1 to 65535
-- Display common service names
+- Scan all TCP ports (`1-65535`)
+- Show common service names
 - Configurable connection timeout
 - Supports IP addresses and hostnames
-- Interactive mode for beginners
-- Command-line mode for faster use
-- Uses only Python's standard library
+- Interactive mode
+- Command-line mode
+- No third-party Python packages required
 
 ## Requirements
 
-- Python 3.8 or newer
-- No external packages required
+- Python 3.8+
+- Standard library only
 
-## Installation
-
-Clone the repository or download `port_scanner.py`.
-
-Then run:
+## Run
 
 ```bash
-python port_scanner.py
+cd python/6-port-scanner
+python port-scanner.py --help
+```
+
+### Examples
+
+Scan selected ports:
+
+```bash
+python port-scanner.py 192.168.1.10 -p 22,80,443
+```
+
+Scan a range:
+
+```bash
+python port-scanner.py 192.168.1.10 -p 1-1024
+```
+
+Scan all TCP ports:
+
+```bash
+python port-scanner.py 192.168.1.10 -p all
+```
+
+The actual script name is **`port-scanner.py`**; use that filename when running the tool.
+
+## Workflow
+
+```mermaid
+flowchart LR
+    A[Target] --> B[Parse ports]
+    B --> C[Create TCP connection]
+    C --> D{Connection succeeds?}
+    D -->|Yes| E[Report open port]
+    D -->|No / timeout| F[Continue]
+    E --> G[Resolve common service name]
+```
+
+## Security Context
+
+Port scanning is a reconnaissance technique commonly used during security assessments. The results only describe what the scanner can observe from its current network position; filtering, firewalls, rate limiting, and service configuration can affect the result.
+
+This is a learning-focused scanner, not a replacement for mature network-scanning platforms.
