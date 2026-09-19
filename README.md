@@ -15,11 +15,14 @@ flowchart LR
     A[Security Tools] --> B[Python]
     A --> C[Bash]
     B --> D[Caesar Cipher]
+    B --> K[Document Finder]
     B --> E[Dictionary Attack]
     B --> F[Password Strength Checker]
+    B --> L[Persistent Document Finder]
     B --> G[Port Scanner]
     B --> H[GUI Packet Sniffer]
     B --> I[QR / VirusTotal Scanner]
+    B --> M[CMD Prank]
     C --> J[Log Pattern Analyzer]
 ```
 
@@ -28,11 +31,14 @@ flowchart LR
 | Tool | Language | What it demonstrates |
 |---|---|---|
 | [Caesar Cipher](python/1-caesar-cipher/) | Python | Classical encryption, decryption, and brute-force analysis |
+| [Document Finder](python/2-document-finder/) | Python | Filesystem enumeration and sensitive-data discovery |
 | [Dictionary Attack](python/3-dictionary-attack/) | Python | Local credential-testing concepts and password weakness |
 | [Password Strength Checker](python/4-password-strength-checker/) | Python | Rule-based password strength checks and their limitations |
+| [Persistent Document Finder](python/5-persistent-document-finder/) | Python | OS-level persistence mechanisms (MITRE ATT&CK TA0003) combined with data discovery |
 | [Port Scanner](python/6-port-scanner/) | Python | TCP reconnaissance, port ranges, and common service identification |
 | [GUI Packet Sniffer](python/7-gui-packet-sniffer/) | Python / Scapy | Live packet capture, protocol filtering, and PCAP export |
 | [QR / VirusTotal Scanner](python/8-qr-virustotal-scanner/) | Python | QR decoding and reputation checking of extracted URLs |
+| [CMD Prank](python/9-cmd-prank/) | Python | Trojan-style hidden behavior triggered by innocuous-looking program logic |
 | [Log Pattern Analyzer](bash/log-pattern-analyzer/) | Bash | Pattern-based log review and frequency analysis |
 
 ## How I Approach These Tools
@@ -75,11 +81,14 @@ Individual READMEs document tool-specific limitations where they matter.
 security-tools/
 ├── python/
 │   ├── 1-caesar-cipher/
+│   ├── 2-document-finder/
 │   ├── 3-dictionary-attack/
 │   ├── 4-password-strength-checker/
+│   ├── 5-persistent-document-finder/
 │   ├── 6-port-scanner/
 │   ├── 7-gui-packet-sniffer/
-│   └── 8-qr-virustotal-scanner/
+│   ├── 8-qr-virustotal-scanner/
+│   └── 9-cmd-prank/
 ├── bash/
 │   └── log-pattern-analyzer/
 └── README.md
